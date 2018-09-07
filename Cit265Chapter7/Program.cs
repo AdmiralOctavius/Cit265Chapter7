@@ -33,11 +33,51 @@ namespace Cit265Chapter7
             }
             //Using colons allows for specific value correction 
             Program.TimeMethod(second: 43, hour: 12);
+
+            int b = 54;
+            SquareRef(ref b);
+            Console.WriteLine(b);
+
+            int result;
+            SquareOut(out result, 6);
+            Console.WriteLine(result);
+
+            long factorials=1;
+            int x = 5;
+            for(int i =x; i>1; i--)
+            {
+                factorials *= i;
+            }
+            Console.WriteLine(factorials);
+            Console.WriteLine(factorial(x));
         }
 
         static double Square(int number)
         {
             return Math.Sqrt(number);
+        }
+
+        static void SquareRef(ref int x)
+        {
+
+            x= x*x;
+        }
+
+        static void SquareOut(out int x, int y)
+        {
+            x = y * y;
+        }
+
+        static long factorial(long number)
+        {
+            if (number <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return number * factorial(number - 1);
+            }
         }
 
         static void TimeMethod(int second=0, int minute=0, int hour = 0)
